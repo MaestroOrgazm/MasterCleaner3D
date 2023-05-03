@@ -91,9 +91,9 @@ Material:
     - _ZSmooth: -0.5
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.14509805, g: 0.40899947, b: 0.6509804, a: 1}
+    - _Color: {r: 0.26366144, g: 0.49420688, b: 0.7075472, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}
+    - _HColor: {r: 0.39186543, g: 0.55319244, b: 0.6981132, a: 1}
     - _OutlineColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _SColor: {r: 0.195, g: 0.195, b: 0.195, a: 1}
+    - _SColor: {r: 0.08517267, g: 0.32639238, b: 0.5471698, a: 1}
   m_BuildTextureStacks: []
