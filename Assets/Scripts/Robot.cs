@@ -92,9 +92,9 @@ public class Robot : MonoBehaviour
             {
                 if (hit.collider.gameObject.TryGetComponent(out Wall wall))
                 {
-                    StopCoroutine(_coroutine);
                     _isMove = false;
                     _source.Stop();
+                    yield break;
                 }
             }
 

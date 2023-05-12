@@ -25,6 +25,8 @@ public class Level : MonoBehaviour
         _robot._finishLevel += Finish;
         _robot._loseLevel += Lose;
         _robot._dirtCleaned += CurrentDirts;
+        SetEventStart();
+        AppMetrica.Instance.SendEventsBuffer();
     }
 
     private void OnDisable()
@@ -56,6 +58,9 @@ public class Level : MonoBehaviour
             Game.LevelUp();
         else
             Game.LevelOne();
+
+        SetEventComplete();
+        AppMetrica.Instance.SendEventsBuffer();
     }
 
     private void Lose()
@@ -67,5 +72,37 @@ public class Level : MonoBehaviour
     private void CurrentDirts(int dirt)
     {
         _text.text = "Dirts gathered: " + dirt + "/" + _dirts.Length;
+    }
+
+    private void SetEventStart()
+    {
+        var properties = new Dictionary<string, object>()
+        {
+            {"level", Game.CurrentLevel},
+            {"days_since_reg", GameStart._daysSinceReg}
+        };
+        AnalyticsEvent.SendReportEvent("level_start", properties);
+    }
+
+    private void SetEventComplete()
+    {
+        var properties = new Dictionary<string, object>()
+        {
+            {"level", Game.CurrentLevel},
+            {"time_spent",(int)Time.deltaTime },
+            {"days_since_reg", GameStart._daysSinceReg}
+        };
+        AnalyticsEvent.SendReportEvent("level_start", properties);
+    }
+    private void SetEventLose()
+    {
+        var properties = new Dictionary<string, object>()
+        {
+            {"level", Game.CurrentLevel},
+            {"reason", "time" },
+            {"time_spent",(int)Time.deltaTime },
+            {"days_since_reg", GameStart._daysSinceReg}
+        };
+        AnalyticsEvent.SendReportEvent("level_start", properties);
     }
 }
